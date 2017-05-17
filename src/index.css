@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.card {
+  text-align:center;
+  border: 1px solid black;
+  height: 300px;
+  width:200px;
+}
+
+.card-back{
+  background-color:purple;
+  color:purple;
+}
