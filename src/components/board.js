@@ -5,37 +5,41 @@ export default class Board extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            number: 0,
-            hidden: false
+            grid: []
         };
     }
-
     generateNumber(){
-        const number = Math.floor(Math.random()*10);
-        // return number;
-        this.setState({number});
+        return Math.floor(Math.random()*10);
     }
-    toggleHidden(){
-        // className={['card-back', 'card'].join(' ')}
-        let classes = ['card'];
-        if (this.state.hidden){
-            classes.push('card-back');
-        }
-        return classes.join(' ');
+    generateGrid() {
+
+        return this.props.elements.map((element, index) =>
+            <Card element={element} />
+        );
     }
 
     render(){
-        let x = this.toggleHidden();
-        this.generateNumber();
-        let elements = this.props.elements.map((element, index) => 
-            <Card key={index} number={this.state.number} classes={x} 
-                onClick = {(e => {this.setState({hidden: true})})}/>
-        );
+
+        console.log(this.props);
+        let y = this.props.elements.map((element, index) =>
+            <Card element={element} />);
+            
         return (
-            // <Card number={this.state.number} classes={x}
-            //     onClick = {(e => {this.setState({hidden: true})})}/>
-            <div>{elements}</div>
+            this.props.elements.map(function(el){
+                return <Card item={el} />;
+            })
         );
     }
 
 }
+        // this.generateNumber();
+        // let elements = this.props.elements.map((element, index) =>
+        //     element.map((item, index1) => 
+        //     <Card row={index} column={index1} number={this.generateNumber} classes={x} 
+        //         onClick = {(e => {this.setState({hidden: true})})}/>
+        // ));
+//  grid = [[x, x, x, x],
+//   [x, x, x, x],
+//   [x, x, y, x],
+//   [x, x, x, x]]
+// grid[2][2]
