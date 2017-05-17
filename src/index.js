@@ -5,7 +5,9 @@ import './index.css';
 // import Card from './components/card';
 import Board from './components/board';
 
+const elements=[{},{}, {}]
+
 ReactDOM.render(
-  <Board />,
+  <Board elements={elements}/>,
   document.getElementById('root')
 );
