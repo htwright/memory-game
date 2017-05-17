@@ -28,7 +28,8 @@ export default class Board extends React.Component {
         let x = this.toggleHidden();
         this.generateNumber();
         return (
-            <Card number={this.state.number} classes={x}/>
+            <Card number={this.state.number} classes={x}
+                onClick = {(e => {this.setState({hidden: true})})}/>
         );
     }
 
