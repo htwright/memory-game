@@ -2,35 +2,21 @@ import React from 'react';
 import Card from './card';
 
 export default class Board extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            grid: []
-        };
-    }
-    generateNumber(){
-        return Math.floor(Math.random()*10);
-    }
-    generateGrid() {
 
-        return this.props.elements.map((element, index) =>
-            <Card element={element} />
-        );
+
+
+    getElement(){
+        let element = this.props.elements;
+        return element.map((el, index) => <Card key={index} item={el}/>);
     }
 
-    render(){
+    render() {
+        console.log('Board',this.props);
 
-        console.log(this.props);
-        let y = this.props.elements.map((element, index) =>
-            <Card element={element} />);
-            
         return (
-            this.props.elements.map(function(el){
-                return <Card item={el} />;
-            })
+      <div>{this.getElement()}</div>
         );
     }
-
 }
         // this.generateNumber();
         // let elements = this.props.elements.map((element, index) =>

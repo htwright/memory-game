@@ -4,29 +4,32 @@ export default class  Card extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            items: []
+            items:[]
         };
     }
 
+
+
+
+    generateRand(){
+        return Math.floor(Math.random()*10);
+    }
+
     generateGrid(){
-        this.props.item.map((it, index)=>{
+        return this.props.item.map((it, index)=>{
+            //if (this.state.items[index] === false)
             return (
-                <div className="`whatever ${index}`">
-                    <span  className="abc">{it}</span>
+                <div key={index} className="card" onClick=(e => 
+                    <span className={index}>{this.generateRand()}</span>
                 </div>
             );
         });
     }
 
     render(){
-        // this.generateGrid();
-        console.log(this.props);
+        console.log('Card',this.props);
         return (
-            this.generateGrid()
-        // <div className={props.classes} onClick={(e => props.onClick(e))}>
-        //     <p>This Is The Front</p>
-        //     <span className='card-number'>{props.number()}</span>
-        // </div>
+            <ul>{this.generateGrid()}</ul>
         );
     }
 }
